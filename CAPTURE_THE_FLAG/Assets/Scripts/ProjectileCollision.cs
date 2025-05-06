@@ -15,4 +15,9 @@ public class ProjectileCollision : MonoBehaviour
         Destroy(gameObject);
 
     }
+    void Awake()
+    {
+
+        Destroy(gameObject,5);
+}
 }
