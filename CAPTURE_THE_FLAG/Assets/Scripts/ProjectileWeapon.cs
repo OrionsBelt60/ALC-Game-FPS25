@@ -8,7 +8,7 @@ public class ProjectileWeapon : MonoBehaviour
     public GameObject projectile;
     public Transform firePoint;//place projectile shoots from, currently not assigned in-script
     public float projectileSpeed;
-    private bool isPlayer;
+   // private bool isPlayer;
     [Header("Shoot Rate & Time")]
     public float shootRate;
     private float lastShootTime;
@@ -21,7 +21,7 @@ public class ProjectileWeapon : MonoBehaviour
     {
         if(GetComponent<PlayerController>())
         {
-            isPlayer = true;
+           // isPlayer = true;
         }
         curAmmo = maxAmmo;
     }
