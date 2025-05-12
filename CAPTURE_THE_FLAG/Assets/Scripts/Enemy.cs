@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     public float attackRange;
-    [Header("Path INfo")]
+    [Header("Path Info")]
     public float yPathOffset;
     private List<Vector3> path;
     private GameObject target;
@@ -65,16 +65,19 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         //Look at target
-        transform.LookAt(target.transform);
-        //Vector3 dir (target.transform.position - tranasform.position).normalized;
-        //float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
-        //transform.eulerAngles = Vector3.up * angle;
+        //transform.LookAt(target.transform);
+        Vector3 dir =(target.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+        transform.eulerAngles = Vector3.up * angle;
 
         //distance from enemy to player/target
         float dist = Vector3.Distance(transform.position, target.transform.position);
         if(dist <= attackRange)
         {
             
+        }
+        else{
+            ChaseTarget();
         }
     }
 }
